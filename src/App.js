@@ -6,15 +6,36 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movieName: "",
-      movieScore: ""
+      movieTitle: "",
+      movieScore: "",
+      movieId: ""
     };
+  }
+
+  componentDidMount() {
+    let url = "http://www.theimdbapi.org/api/movie?movie_id=tt0418279";
+
+    fetch(url)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        this.setState(() => ({
+          movieTitle: data.title,
+          movieScore: data.rating,
+          movieId: data.imdb_id
+        }));
+      });
   }
 
   render() {
     return (
       <div className="App">
-        <MovieInformation movie={this.state.movie} key={"ascas1"} />
+        <MovieInformation
+          title={this.state.movieTitle}
+          score={this.state.movieScore}
+          key={"ascas1"}
+        />
       </div>
     );
   }

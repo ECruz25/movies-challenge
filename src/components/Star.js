@@ -4,7 +4,7 @@ class Stars extends Component {
   render() {
     return (
       <div className="Stars">
-        <p>kajcs</p>
+        <p>Star</p>
       </div>
     );
   }

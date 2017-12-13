@@ -5,8 +5,8 @@ class MovieInformation extends Component {
   render() {
     return (
       <div className="MovieInformation">
-        <p>{this.props.movie}</p>
-        <Stars key="star" score={this.props.movie} />
+        <p>{this.props.title}</p>
+        <Stars key="star" score={this.props.score} />
       </div>
     );
   }
