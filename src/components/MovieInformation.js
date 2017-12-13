@@ -6,7 +6,7 @@ class MovieInformation extends Component {
     return (
       <div className="MovieInformation">
         <p>{this.props.title}</p>
-        <Stars key="star" score={this.props.score} />
+        <Stars key="star" score={Math.floor(this.props.score)} />
       </div>
     );
   }

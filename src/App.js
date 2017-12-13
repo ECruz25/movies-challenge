@@ -12,7 +12,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let url = "http://www.theimdbapi.org/api/movie?movie_id=tt0418279";
 
     fetch(url)
