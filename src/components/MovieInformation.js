@@ -20,7 +20,6 @@ class MovieInformation extends Component {
   onRateChange(e) {
     const score = e.target.value;
     this.setState(() => ({ score }));
-    console.log(this.state.score);
   }
 
   render() {

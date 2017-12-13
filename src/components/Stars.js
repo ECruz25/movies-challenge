@@ -9,24 +9,36 @@ class Stars extends Component {
     this.state = {
       score: 0
     };
+    this.changeRatingFirstStar = this.changeRatingFirstStar.bind(this);
+    this.changeRatingSecondStar = this.changeRatingSecondStar.bind(this);
+    this.changeRatingThirdStar = this.changeRatingThirdStar.bind(this);
+    this.changeRatingFourthStar = this.changeRatingFourthStar.bind(this);
+    this.changeRatingFifthStar = this.changeRatingFifthStar.bind(this);
   }
   changeRatingFirstStar() {
-    this.setState(() => {
-      score: 2;
-    });
-    console.log(this.state);
+    this.setState(() => ({
+      score: 2
+    }));
   }
   changeRatingSecondStar() {
-    console.log(this.state);
+    this.setState(() => ({
+      score: 4
+    }));
   }
   changeRatingThirdStar() {
-    console.log(this.state);
+    this.setState(() => ({
+      score: 6
+    }));
   }
   changeRatingFourthStar() {
-    console.log(this.state);
+    this.setState(() => ({
+      score: 8
+    }));
   }
   changeRatingFifthStar() {
-    console.log(this.state);
+    this.setState(() => ({
+      score: 10
+    }));
   }
   componentWillReceiveProps(nextProps) {
     const score = nextProps.score;
@@ -39,50 +51,50 @@ class Stars extends Component {
     return (
       <div className="Stars">
         {/*Terniary operator to verify which star should be filled*/}
-        {this.props.score >= 1 ? (
-          this.props.score >= 2 ? (
-            <StarFull onClick={this.changeRating} />
+        {this.state.score >= 1 ? (
+          this.state.score >= 2 ? (
+            <StarFull onClick={this.changeRatingFirstStar} />
           ) : (
-            <StarHalf />
+            <StarHalf onClick={this.changeRatingFirstStar} />
           )
         ) : (
-          <StarEmpty />
+          <StarEmpty onClick={this.changeRatingFirstStar} />
         )}
-        {this.props.score >= 3 ? (
-          this.props.score >= 4 ? (
-            <StarFull />
+        {this.state.score >= 3 ? (
+          this.state.score >= 4 ? (
+            <StarFull onClick={this.changeRatingSecondStar} />
           ) : (
-            <StarHalf />
+            <StarHalf onClick={this.changeRatingSecondStar} />
           )
         ) : (
-          <StarEmpty />
+          <StarEmpty onClick={this.changeRatingSecondStar} />
         )}{" "}
-        {this.props.score >= 5 ? (
-          this.props.score >= 6 ? (
-            <StarFull />
+        {this.state.score >= 5 ? (
+          this.state.score >= 6 ? (
+            <StarFull onClick={this.changeRatingThirdStar} />
           ) : (
-            <StarHalf />
+            <StarHalf onClick={this.changeRatingThirdStar} />
           )
         ) : (
-          <StarEmpty />
+          <StarEmpty onClick={this.changeRatingThirdStar} />
         )}{" "}
-        {this.props.score >= 7 ? (
-          this.props.score >= 8 ? (
-            <StarFull />
+        {this.state.score >= 7 ? (
+          this.state.score >= 8 ? (
+            <StarFull onClick={this.changeRatingFourthStar} />
           ) : (
-            <StarHalf />
+            <StarHalf onClick={this.changeRatingFourthStar} />
           )
         ) : (
-          <StarEmpty />
+          <StarEmpty onClick={this.changeRatingFourthStar} />
         )}{" "}
-        {this.props.score > 9 ? (
-          this.props.score >= 10 ? (
-            <StarFull />
+        {this.state.score > 9 ? (
+          this.state.score >= 10 ? (
+            <StarFull onClick={this.changeRatingFifthStar} />
           ) : (
-            <StarHalf />
+            <StarHalf onClick={this.changeRatingFifthStar} />
           )
         ) : (
-          <StarEmpty />
+          <StarEmpty onClick={this.changeRatingFifthStar} />
         )}
       </div>
     );
